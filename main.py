@@ -19,6 +19,12 @@ for index, row in df.iterrows():
         pdf.set_text_color(180, 180, 180)
         pdf.cell(w=0, h=10, txt=row["Topic"], align="R")
 
+        # add writing lines
+        ml = 31
+        for _ in range(26):
+              pdf.line(10, ml, 200, ml)
+              ml += 10
+
         for _ in range(row["Pages"] - 1):
             pdf.add_page()
             
@@ -28,5 +34,10 @@ for index, row in df.iterrows():
             pdf.set_text_color(180, 180, 180)
             pdf.cell(w=0, h=10, txt=row["Topic"], align="R")
 
+            # add writing lines
+            sl = 21
+            for _ in range(27):
+                pdf.line(10, sl, 200, sl)
+                sl += 10
 
 pdf.output("output.pdf")
